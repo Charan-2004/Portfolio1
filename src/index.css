@@ -252,6 +252,14 @@ header {
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-block;
+}
+.tag:hover {
+  background: var(--text-primary);
+  color: var(--bg-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 .tag-inverted {
   border-color: rgba(255,255,255,0.2);
@@ -337,12 +345,34 @@ header {
   flex-direction: column;
   border-top: 2px solid var(--text-primary);
   padding-top: 24px;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.process-step:hover {
+  transform: translateY(-4px);
+}
+.process-step::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #FFF;
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.process-step:hover::before {
+  width: 100%;
 }
 .process-number {
   font-family: var(--font-display);
   font-size: 1.5rem;
   color: var(--text-secondary);
   margin-bottom: 16px;
+  transition: color 0.4s ease;
+}
+.process-step:hover .process-number {
+  color: var(--text-primary);
 }
 .process-name {
   font-size: 1.8rem;

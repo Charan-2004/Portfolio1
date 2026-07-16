@@ -267,10 +267,10 @@ function App() {
                 <motion.div 
                   key={index} 
                   className="process-step"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 40, rotateX: -15 }}
+                  whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.8, delay: index * 0.15, type: "spring", damping: 20 }}
                 >
                   <span className="process-number">{step.step}</span>
                   <h3 className="process-name">{step.name}</h3>
@@ -294,10 +294,10 @@ function App() {
                   key={index}
                   className="list-item"
                   style={{ padding: '32px' }}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.7, delay: index * 0.15, type: "spring", damping: 15 }}
                 >
                   <h3 style={{ fontSize: '1.5rem', fontFamily: 'var(--font-display)', marginBottom: '24px' }}>{skillGroup.category}</h3>
                   <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
@@ -324,10 +324,10 @@ function App() {
                   {EXPERIENCE.map((exp, index) => (
                     <motion.div 
                       key={index} className="list-item"
-                      initial={{ opacity: 0, x: -30 }}
+                      initial={{ opacity: 0, x: -40 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: "-100px" }}
-                      transition={{ duration: 0.6 }}
+                      viewport={{ once: true, margin: "-50px" }}
+                      transition={{ duration: 0.8, delay: index * 0.2, type: "spring", damping: 20 }}
                     >
                       <div className="list-header">
                         <div>
@@ -354,10 +354,10 @@ function App() {
                   {EDUCATION.map((edu, index) => (
                     <motion.div 
                       key={index} className="list-item"
-                      initial={{ opacity: 0, x: 30 }}
+                      initial={{ opacity: 0, x: 40 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: "-100px" }}
-                      transition={{ duration: 0.6 }}
+                      viewport={{ once: true, margin: "-50px" }}
+                      transition={{ duration: 0.8, delay: index * 0.2, type: "spring", damping: 20 }}
                     >
                       <div className="list-header">
                         <div>
@@ -378,10 +378,10 @@ function App() {
                   {ACHIEVEMENTS.map((achieve, index) => (
                     <motion.div 
                       key={index} className="list-item" style={{ padding: '24px 32px' }}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-100px" }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      initial={{ opacity: 0, y: 20, scale: 0.98 }}
+                      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                      viewport={{ once: true, margin: "-50px" }}
+                      transition={{ duration: 0.6, delay: index * 0.15, type: "spring", damping: 20 }}
                     >
                       <p style={{ fontWeight: '500', margin: 0, color: 'inherit' }}>{achieve}</p>
                     </motion.div>

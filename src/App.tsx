@@ -233,10 +233,10 @@ function App() {
                   href={project.link} target="_blank" rel="noreferrer"
                   key={index}
                   className="project-card"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 50, scale: 0.95 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  transition={{ duration: 0.8, delay: index * 0.1, type: "spring", damping: 20 }}
                 >
                   <div className="project-img" style={{ overflow: 'hidden' }}>
                     <motion.img 
@@ -397,11 +397,34 @@ function App() {
       {/* Sticky Reveal Footer */}
       <footer className="footer-wrapper">
         <div className="footer-content">
-          <h2 className="footer-massive-text">Charan KY.</h2>
-          
-          <MagneticButton href="mailto:kycharan3@gmail.com" className="btn-primary btn-white">
-            Let's Talk <ArrowUpRight size={18} />
-          </MagneticButton>
+          <div className="footer-grid">
+            <div className="footer-brand">
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '4rem', marginBottom: '8px' }}>Charan KY.</h2>
+              <p>Designing and building extraordinary digital experiences. Let's create something impactful together.</p>
+              <MagneticButton href="mailto:kycharan3@gmail.com" className="btn-primary btn-white" style={{ padding: '16px 36px' }}>
+                Let's Talk <ArrowUpRight size={18} />
+              </MagneticButton>
+            </div>
+            
+            <div className="footer-col">
+              <h3>Navigation</h3>
+              <ul>
+                <li><a href="#" className="footer-link">Home</a></li>
+                <li><a href="#work" className="footer-link">Selected Works</a></li>
+                <li><a href="#process" className="footer-link">The Process</a></li>
+                <li><a href="#skills" className="footer-link">Expertise</a></li>
+              </ul>
+            </div>
+            
+            <div className="footer-col">
+              <h3>Connect</h3>
+              <ul>
+                <li><a href="https://www.linkedin.com/in/charan-ky-349a83249/" target="_blank" rel="noreferrer" className="footer-link">LinkedIn</a></li>
+                <li><a href="https://github.com/Charan-2004" target="_blank" rel="noreferrer" className="footer-link">GitHub</a></li>
+                <li><a href="mailto:kycharan3@gmail.com" className="footer-link">Email</a></li>
+              </ul>
+            </div>
+          </div>
 
           <div className="footer-bottom">
             <p>&copy; {new Date().getFullYear()} Charan K Y. All rights reserved.</p>

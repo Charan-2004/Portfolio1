@@ -361,38 +361,6 @@ header {
   }
 }
 
-/* Webflow Expert Card */
-.webflow-expert-card {
-  background: var(--text-primary) !important;
-  color: #FFF !important;
-  grid-column: 1 / -1; 
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-.webflow-expert-card:hover {
-  background: var(--text-primary);
-  transform: translateY(-8px);
-  box-shadow: 16px 16px 0px rgba(0, 0, 0, 0.5);
-}
-.webflow-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 16px;
-  width: 100%;
-}
-.webflow-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 1.05rem;
-  font-weight: 500;
-}
-.webflow-item svg {
-  color: #4CAF50; /* A pop of green for checkmarks */
-}
-
-
 /* Sticky Reveal Footer */
 .footer-wrapper {
   position: fixed;

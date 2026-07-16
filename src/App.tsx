@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { motion, useMotionValue, useSpring, useScroll, useTransform } from 'framer-motion';
-import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import './index.css';
 
 const MagneticButton = ({ children, href, className, style }: any) => {
@@ -58,10 +58,6 @@ const PROCESS = [
   { step: "06", name: "Result", desc: "Final handoff, deployment, and measuring the impact against initial goals." }
 ];
 
-const WEBFLOW_SKILLS = [
-  "CMS", "Interactions", "Responsive Design", "Client First", "GSAP", "Finsweet Attributes", "SEO", "Performance"
-];
-
 const EXPERIENCE = [
   { 
     role: "Technical Support Engineer", 
@@ -95,6 +91,10 @@ const SKILLS = [
   {
     category: "Backend & Automation",
     items: ["Python", "Selenium", "Flask", "REST APIs", "MySQL"]
+  },
+  {
+    category: "Webflow Expert",
+    items: ["CMS", "Interactions", "Responsive Design", "Client First", "GSAP", "Finsweet Attributes", "SEO", "Performance"]
   }
 ];
 
@@ -289,28 +289,6 @@ function App() {
             
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '32px' }}>
               
-              {/* Dedicated Webflow Expert Block */}
-              <motion.div 
-                className="list-item webflow-expert-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6 }}
-              >
-                <div>
-                  <h3 style={{ fontSize: '2rem', fontFamily: 'var(--font-display)', marginBottom: '8px' }}>Webflow Expert</h3>
-                  <p style={{ color: 'rgba(255,255,255,0.7)' }}>Building highly interactive, performant, and scalable sites.</p>
-                </div>
-                <div className="webflow-grid">
-                  {WEBFLOW_SKILLS.map((skill, i) => (
-                    <div key={i} className="webflow-item">
-                      <CheckCircle2 size={18} />
-                      <span>{skill}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
               {SKILLS.map((skillGroup, index) => (
                 <motion.div 
                   key={index}

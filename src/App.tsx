@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring, useScroll, useTransform } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import Lenis from 'lenis';
@@ -129,7 +129,18 @@ const PROJECTS = [
   }
 ];
 
+const EasterEggI = ({ setHover }: { setHover: (val: boolean) => void }) => (
+  <span 
+    onMouseEnter={() => setHover(true)} 
+    onMouseLeave={() => setHover(false)}
+    style={{ cursor: 'crosshair', display: 'inline-block' }}
+  >
+    i
+  </span>
+);
+
 function App() {
+  const [isHoveringEasterEgg, setIsHoveringEasterEgg] = useState(false);
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
   
@@ -172,6 +183,11 @@ function App() {
       {/* Custom Cursor */}
       <motion.div
         className="custom-cursor"
+        animate={{
+          scale: isHoveringEasterEgg ? 8 : 1,
+          opacity: isHoveringEasterEgg ? 0.8 : 1
+        }}
+        transition={{ type: 'spring', stiffness: 400, damping: 25 }}
         style={{
           translateX: cursorXSpring,
           translateY: cursorYSpring,
@@ -201,7 +217,8 @@ function App() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
               >
-                Building digital<br/>experiences that convert.
+                Bu<EasterEggI setHover={setIsHoveringEasterEgg}/>ld<EasterEggI setHover={setIsHoveringEasterEgg}/>ng d<EasterEggI setHover={setIsHoveringEasterEgg}/>g<EasterEggI setHover={setIsHoveringEasterEgg}/>tal<br/>
+                exper<EasterEggI setHover={setIsHoveringEasterEgg}/>ences that convert.
               </motion.h1>
               <motion.p 
                 initial={{ opacity: 0, y: 20 }}

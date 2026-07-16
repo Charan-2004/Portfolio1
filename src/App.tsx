@@ -125,7 +125,7 @@ const PROJECTS = [
     tags: ["Community", "Web App", "UI/UX"],
     desc: "A real-time community engagement and chat platform designed to foster organic connections. Optimized for high-performance interactions and seamless user acquisition.",
     link: "https://chathere.online",
-    img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=1200&h=800"
+    img: "/chathere.png"
   }
 ];
 

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { motion, useMotionValue, useSpring, useScroll, useTransform } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import './index.css';
 
 const MagneticButton = ({ children, href, className, style }: any) => {
@@ -49,6 +49,19 @@ const LinkedinIcon = ({ size = 24 }: { size?: number }) => (
 );
 
 // --- DATA ---
+const PROCESS = [
+  { step: "01", name: "Problem", desc: "Defining the core constraints, user pain points, and primary business objectives." },
+  { step: "02", name: "Research", desc: "Conducting competitor analysis, user interviews, and gathering quantitative data." },
+  { step: "03", name: "Wireframes", desc: "Mapping out the information architecture and low-fidelity structural layouts." },
+  { step: "04", name: "UI Design", desc: "Executing high-fidelity visual design, typography systems, and interaction models." },
+  { step: "05", name: "Development", desc: "Translating the visual design into pixel-perfect, highly performant code." },
+  { step: "06", name: "Result", desc: "Final handoff, deployment, and measuring the impact against initial goals." }
+];
+
+const WEBFLOW_SKILLS = [
+  "CMS", "Interactions", "Responsive Design", "Client First", "GSAP", "Finsweet Attributes", "SEO", "Performance"
+];
+
 const EXPERIENCE = [
   { 
     role: "Technical Support Engineer", 
@@ -82,10 +95,6 @@ const SKILLS = [
   {
     category: "Backend & Automation",
     items: ["Python", "Selenium", "Flask", "REST APIs", "MySQL"]
-  },
-  {
-    category: "Tools & Platforms",
-    items: ["Git & GitHub", "Postman", "VS Code", "Vercel", "Cloudflare"]
   }
 ];
 
@@ -165,233 +174,266 @@ function App() {
         }}
       />
 
-      {/* Navigation */}
-      <header>
-        <div className="container nav-content">
-          <div className="logo">Charan KY</div>
-          <nav className="nav-links">
-            <a href="#work" className="nav-link">Work</a>
-            <a href="#skills" className="nav-link">Skills</a>
-            <a href="#experience" className="nav-link">Experience</a>
-          </nav>
-        </div>
-      </header>
-
-      <main>
-        {/* Hero Section */}
-        <section className="section" style={{ minHeight: '90vh', display: 'flex', alignItems: 'center', paddingTop: '120px' }}>
-          <div className="container" style={{ width: '100%' }}>
-            <motion.h1 
-              className="title-hero"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              Building digital<br/>experiences that convert.
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', maxWidth: '600px', marginBottom: '48px', fontWeight: 500 }}
-            >
-              UI/UX Engineer and Frontend Developer passionate about bridging the gap between design and engineering using modern frameworks.
-            </motion.p>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-            >
-              <MagneticButton href="#work" className="btn-primary">
-                View My Work <ArrowUpRight size={20} />
-              </MagneticButton>
-            </motion.div>
+      <div className="content-wrapper">
+        {/* Navigation */}
+        <header>
+          <div className="container nav-content">
+            <div className="logo">Charan KY</div>
+            <nav className="nav-links">
+              <a href="#work" className="nav-link">Work</a>
+              <a href="#process" className="nav-link">Process</a>
+              <a href="#skills" className="nav-link">Expertise</a>
+            </nav>
           </div>
-        </section>
+        </header>
 
-        {/* Selected Works */}
-        <section id="work" className="section container">
-          <div className="section-title">
-            <span className="section-subtitle">01 / Portfolio</span>
-            <h2>Selected Works</h2>
-          </div>
-
-          <div className="projects-grid">
-            {PROJECTS.map((project, index) => (
-              <motion.a 
-                href={project.link} target="_blank" rel="noreferrer"
-                key={index}
-                className="project-card"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+        <main>
+          {/* Hero Section */}
+          <section className="section" style={{ minHeight: '90vh', display: 'flex', alignItems: 'center', paddingTop: '120px' }}>
+            <div className="container" style={{ width: '100%' }}>
+              <motion.h1 
+                className="title-hero"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
               >
-                <div className="project-img" style={{ overflow: 'hidden' }}>
-                  <motion.img 
-                    src={project.img} 
-                    alt={project.title} 
-                    style={{ y: yParallax, scale: 1.15 }}
-                  />
-                </div>
-                <h3 className="project-title">{project.title}</h3>
-                <p className="project-desc">{project.desc}</p>
-                <div className="project-tags">
-                  {project.tags.map((tag, i) => <span key={i} className="tag">{tag}</span>)}
-                </div>
-              </motion.a>
-            ))}
-          </div>
-        </section>
+                Building digital<br/>experiences that convert.
+              </motion.h1>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+                style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', maxWidth: '600px', marginBottom: '48px', fontWeight: 500 }}
+              >
+                UI/UX Engineer and Frontend Developer passionate about bridging the gap between design and engineering using modern frameworks.
+              </motion.p>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+              >
+                <MagneticButton href="#work" className="btn-primary">
+                  View My Work <ArrowUpRight size={20} />
+                </MagneticButton>
+              </motion.div>
+            </div>
+          </section>
 
-        {/* Skills Section */}
-        <section id="skills" className="section container">
-          <div className="section-title">
-            <span className="section-subtitle">02 / Expertise</span>
-            <h2>Technical Skills</h2>
-          </div>
-          
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '32px' }}>
-            {SKILLS.map((skillGroup, index) => (
+          {/* Selected Works */}
+          <section id="work" className="section container">
+            <div className="section-title">
+              <span className="section-subtitle">01 / Portfolio</span>
+              <h2>Selected Works</h2>
+            </div>
+
+            <div className="projects-grid">
+              {PROJECTS.map((project, index) => (
+                <motion.a 
+                  href={project.link} target="_blank" rel="noreferrer"
+                  key={index}
+                  className="project-card"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                >
+                  <div className="project-img" style={{ overflow: 'hidden' }}>
+                    <motion.img 
+                      src={project.img} 
+                      alt={project.title} 
+                      style={{ y: yParallax, scale: 1.15 }}
+                    />
+                  </div>
+                  <h3 className="project-title">{project.title}</h3>
+                  <p className="project-desc">{project.desc}</p>
+                  <div className="project-tags">
+                    {project.tags.map((tag, i) => <span key={i} className="tag">{tag}</span>)}
+                  </div>
+                </motion.a>
+              ))}
+            </div>
+          </section>
+
+          {/* The Process */}
+          <section id="process" className="section container">
+            <div className="section-title">
+              <span className="section-subtitle">02 / Methodology</span>
+              <h2>The Process</h2>
+            </div>
+
+            <div className="process-grid">
+              {PROCESS.map((step, index) => (
+                <motion.div 
+                  key={index} 
+                  className="process-step"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <span className="process-number">{step.step}</span>
+                  <h3 className="process-name">{step.name}</h3>
+                  <p className="process-desc">{step.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </section>
+
+          {/* Skills Section */}
+          <section id="skills" className="section container">
+            <div className="section-title">
+              <span className="section-subtitle">03 / Expertise</span>
+              <h2>Technical Skills</h2>
+            </div>
+            
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '32px' }}>
+              
+              {/* Dedicated Webflow Expert Block */}
               <motion.div 
-                key={index}
-                className="list-item"
-                style={{ padding: '32px' }}
+                className="list-item webflow-expert-card"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.6 }}
               >
-                <h3 style={{ fontSize: '1.5rem', fontFamily: 'var(--font-display)', marginBottom: '24px' }}>{skillGroup.category}</h3>
-                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                  {skillGroup.items.map((item, i) => (
-                    <span key={i} className="tag">{item}</span>
+                <div>
+                  <h3 style={{ fontSize: '2rem', fontFamily: 'var(--font-display)', marginBottom: '8px' }}>Webflow Expert</h3>
+                  <p style={{ color: 'rgba(255,255,255,0.7)' }}>Building highly interactive, performant, and scalable sites.</p>
+                </div>
+                <div className="webflow-grid">
+                  {WEBFLOW_SKILLS.map((skill, i) => (
+                    <div key={i} className="webflow-item">
+                      <CheckCircle2 size={18} />
+                      <span>{skill}</span>
+                    </div>
                   ))}
                 </div>
               </motion.div>
-            ))}
-          </div>
-        </section>
 
-        {/* Experience & Education Grid */}
-        <section id="experience" className="section container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '60px' }}>
-            
-            {/* Experience */}
-            <div>
-              <div className="section-title">
-                <span className="section-subtitle">03 / Journey</span>
-                <h2>Experience</h2>
-              </div>
-              <div className="list-container">
-                {EXPERIENCE.map((exp, index) => (
-                  <motion.div 
-                    key={index} className="list-item"
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.6 }}
-                  >
-                    <div className="list-header">
-                      <div>
-                        <h3 className="list-role">{exp.role}</h3>
-                        <p className="list-org">{exp.company}</p>
+              {SKILLS.map((skillGroup, index) => (
+                <motion.div 
+                  key={index}
+                  className="list-item"
+                  style={{ padding: '32px' }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                >
+                  <h3 style={{ fontSize: '1.5rem', fontFamily: 'var(--font-display)', marginBottom: '24px' }}>{skillGroup.category}</h3>
+                  <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                    {skillGroup.items.map((item, i) => (
+                      <span key={i} className="tag">{item}</span>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </section>
+
+          {/* Experience & Education Grid */}
+          <section id="experience" className="section container" style={{ paddingBottom: '160px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '60px' }}>
+              
+              {/* Experience */}
+              <div>
+                <div className="section-title">
+                  <span className="section-subtitle">04 / Journey</span>
+                  <h2>Experience</h2>
+                </div>
+                <div className="list-container">
+                  {EXPERIENCE.map((exp, index) => (
+                    <motion.div 
+                      key={index} className="list-item"
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: "-100px" }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <div className="list-header">
+                        <div>
+                          <h3 className="list-role">{exp.role}</h3>
+                          <p className="list-org">{exp.company}</p>
+                        </div>
+                        <div className="list-date">{exp.date}</div>
                       </div>
-                      <div className="list-date">{exp.date}</div>
-                    </div>
-                    <ul className="list-details">
-                      {exp.details.map((detail, i) => <li key={i}>{detail}</li>)}
-                    </ul>
-                  </motion.div>
-                ))}
+                      <ul className="list-details">
+                        {exp.details.map((detail, i) => <li key={i}>{detail}</li>)}
+                      </ul>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* Education & Achievements */}
-            <div>
-              <div className="section-title">
-                <span className="section-subtitle">04 / Background</span>
-                <h2>Education</h2>
-              </div>
-              <div className="list-container" style={{ marginBottom: '60px' }}>
-                {EDUCATION.map((edu, index) => (
-                  <motion.div 
-                    key={index} className="list-item"
-                    initial={{ opacity: 0, x: 30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.6 }}
-                  >
-                    <div className="list-header">
-                      <div>
-                        <h3 className="list-role">{edu.degree}</h3>
-                        <p className="list-org">{edu.school}</p>
+              {/* Education & Achievements */}
+              <div>
+                <div className="section-title">
+                  <span className="section-subtitle">05 / Background</span>
+                  <h2>Education</h2>
+                </div>
+                <div className="list-container" style={{ marginBottom: '60px' }}>
+                  {EDUCATION.map((edu, index) => (
+                    <motion.div 
+                      key={index} className="list-item"
+                      initial={{ opacity: 0, x: 30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: "-100px" }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <div className="list-header">
+                        <div>
+                          <h3 className="list-role">{edu.degree}</h3>
+                          <p className="list-org">{edu.school}</p>
+                        </div>
+                        <div className="list-date">{edu.date}</div>
                       </div>
-                      <div className="list-date">{edu.date}</div>
-                    </div>
-                    <p style={{ color: 'var(--text-secondary)' }}>CGPA: <span style={{ color: 'var(--text-primary)', fontWeight: '600' }}>{edu.cgpa}</span></p>
-                  </motion.div>
-                ))}
-              </div>
+                      <p style={{ color: 'var(--text-secondary)' }}>CGPA: <span style={{ color: 'var(--text-primary)', fontWeight: '600' }}>{edu.cgpa}</span></p>
+                    </motion.div>
+                  ))}
+                </div>
 
-              <div className="section-title" style={{ marginBottom: '32px' }}>
-                <h2>Achievements</h2>
+                <div className="section-title" style={{ marginBottom: '32px' }}>
+                  <h2>Achievements</h2>
+                </div>
+                <div className="list-container">
+                  {ACHIEVEMENTS.map((achieve, index) => (
+                    <motion.div 
+                      key={index} className="list-item" style={{ padding: '24px 32px' }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-100px" }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                    >
+                      <p style={{ fontWeight: '500', margin: 0, color: 'inherit' }}>{achieve}</p>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
-              <div className="list-container">
-                {ACHIEVEMENTS.map((achieve, index) => (
-                  <motion.div 
-                    key={index} className="list-item" style={{ padding: '24px 32px' }}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                  >
-                    <p style={{ fontWeight: '500', margin: 0, color: 'inherit' }}>{achieve}</p>
-                  </motion.div>
-                ))}
-              </div>
+              
             </div>
-            
-          </div>
-        </section>
-      </main>
+          </section>
+        </main>
+      </div>
 
-      {/* Real Footer */}
-      <footer id="contact">
-        <div className="container">
-          <div className="footer-grid">
-            <div className="footer-brand">
-              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '4rem', marginBottom: '8px' }}>Charan KY.</h2>
-              <p>Designing and building extraordinary digital experiences. Available for freelance opportunities and full-time roles.</p>
-              <MagneticButton href="mailto:kycharan3@gmail.com" className="btn-primary" style={{ padding: '16px 36px', marginTop: '16px' }}>
-                Let's Talk <ArrowUpRight size={18} />
-              </MagneticButton>
-            </div>
-            
-            <div className="footer-col">
-              <h3>Navigation</h3>
-              <ul>
-                <li><a href="#" className="footer-link">Home</a></li>
-                <li><a href="#work" className="footer-link">Selected Works</a></li>
-                <li><a href="#experience" className="footer-link">Experience</a></li>
-              </ul>
-            </div>
-            
-            <div className="footer-col">
-              <h3>Socials</h3>
-              <ul>
-                <li><a href="https://www.linkedin.com/in/charan-ky-349a83249/" target="_blank" rel="noreferrer" className="footer-link">LinkedIn</a></li>
-                <li><a href="https://github.com/Charan-2004" target="_blank" rel="noreferrer" className="footer-link">GitHub</a></li>
-              </ul>
-            </div>
-          </div>
+      {/* Sticky Reveal Footer */}
+      <footer className="footer-wrapper">
+        <div className="footer-content">
+          <h2 className="footer-massive-text">Charan KY.</h2>
           
+          <MagneticButton href="mailto:kycharan3@gmail.com" className="btn-primary btn-white">
+            Let's Talk <ArrowUpRight size={18} />
+          </MagneticButton>
+
           <div className="footer-bottom">
             <p>&copy; {new Date().getFullYear()} Charan K Y. All rights reserved.</p>
             <div className="footer-socials">
-              <a href="https://github.com/Charan-2004" target="_blank" rel="noreferrer" className="footer-social-icon"><GithubIcon size={22} /></a>
-              <a href="https://www.linkedin.com/in/charan-ky-349a83249/" target="_blank" rel="noreferrer" className="footer-social-icon"><LinkedinIcon size={22} /></a>
+              <a href="https://github.com/Charan-2004" target="_blank" rel="noreferrer" className="footer-social-icon">
+                <GithubIcon size={20} /> GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/charan-ky-349a83249/" target="_blank" rel="noreferrer" className="footer-social-icon">
+                <LinkedinIcon size={20} /> LinkedIn
+              </a>
             </div>
           </div>
         </div>

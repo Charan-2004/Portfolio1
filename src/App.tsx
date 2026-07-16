@@ -235,7 +235,7 @@ function App() {
                   className="project-card"
                   initial={{ opacity: 0, y: 50, scale: 0.95 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true, margin: "-100px" }}
+                  viewport={{ once: false, amount: 0.1 }}
                   transition={{ duration: 0.8, delay: index * 0.1, type: "spring", damping: 20 }}
                 >
                   <div className="project-img" style={{ overflow: 'hidden' }}>
@@ -269,7 +269,7 @@ function App() {
                   className="process-step"
                   initial={{ opacity: 0, y: 40, rotateX: -15 }}
                   whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
+                  viewport={{ once: false, amount: 0.1 }}
                   transition={{ duration: 0.8, delay: index * 0.15, type: "spring", damping: 20 }}
                 >
                   <span className="process-number">{step.step}</span>
@@ -296,7 +296,7 @@ function App() {
                   style={{ padding: '32px' }}
                   initial={{ opacity: 0, y: 40, scale: 0.95 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true, margin: "-50px" }}
+                  viewport={{ once: false, amount: 0.1 }}
                   transition={{ duration: 0.7, delay: index * 0.15, type: "spring", damping: 15 }}
                 >
                   <h3 style={{ fontSize: '1.5rem', fontFamily: 'var(--font-display)', marginBottom: '24px' }}>{skillGroup.category}</h3>
@@ -326,7 +326,7 @@ function App() {
                       key={index} className="list-item"
                       initial={{ opacity: 0, x: -40 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: "-50px" }}
+                      viewport={{ once: false, amount: 0.2 }}
                       transition={{ duration: 0.8, delay: index * 0.2, type: "spring", damping: 20 }}
                     >
                       <div className="list-header">
@@ -356,7 +356,7 @@ function App() {
                       key={index} className="list-item"
                       initial={{ opacity: 0, x: 40 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: "-50px" }}
+                      viewport={{ once: false, amount: 0.2 }}
                       transition={{ duration: 0.8, delay: index * 0.2, type: "spring", damping: 20 }}
                     >
                       <div className="list-header">
@@ -380,7 +380,7 @@ function App() {
                       key={index} className="list-item" style={{ padding: '24px 32px' }}
                       initial={{ opacity: 0, y: 20, scale: 0.98 }}
                       whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                      viewport={{ once: true, margin: "-50px" }}
+                      viewport={{ once: false, amount: 0.2 }}
                       transition={{ duration: 0.6, delay: index * 0.15, type: "spring", damping: 20 }}
                     >
                       <p style={{ fontWeight: '500', margin: 0, color: 'inherit' }}>{achieve}</p>
@@ -428,14 +428,6 @@ function App() {
 
           <div className="footer-bottom">
             <p>&copy; {new Date().getFullYear()} Charan K Y. All rights reserved.</p>
-            <div className="footer-socials">
-              <a href="https://github.com/Charan-2004" target="_blank" rel="noreferrer" className="footer-social-icon">
-                <GithubIcon size={20} /> GitHub
-              </a>
-              <a href="https://www.linkedin.com/in/charan-ky-349a83249/" target="_blank" rel="noreferrer" className="footer-social-icon">
-                <LinkedinIcon size={20} /> LinkedIn
-              </a>
-            </div>
           </div>
         </div>
       </footer>

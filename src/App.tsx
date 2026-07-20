@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring, useScroll, useTransform } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import Lenis from 'lenis';
+import { Analytics } from '@vercel/analytics/react';
 import './index.css';
 
 const MagneticButton = ({ children, href, className, style }: any) => {
@@ -178,8 +179,11 @@ function App() {
   const { scrollYProgress } = useScroll();
   const yParallax = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
+  const isOwner = typeof window !== 'undefined' && localStorage.getItem('isOwner') === 'true';
+
   return (
     <div className="app-container">
+      {!isOwner && <Analytics />}
       {/* Custom Cursor */}
       <motion.div
         className="custom-cursor"
